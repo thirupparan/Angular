@@ -9,9 +9,9 @@
 	  </thead>
 	  
 	  <tbody>
-	  <tr>
-	  <th>1</th>
-        <th>chcfh</th>
+	  <tr *ngFor="let status of  statuses">
+	  <th>{{status.id}}</th>
+        <th>{{status.status}}</th>
        
 		
 		<th> <button type="button"  >Edit</button>

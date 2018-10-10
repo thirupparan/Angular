@@ -34,7 +34,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
 import{DepartmentService} from './Service/department.service';
 import{RoleService} from './Service/Role.service';
-
+import{StatusService}from './Service/status.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +73,8 @@ import{RoleService} from './Service/Role.service';
   ],
   providers: [
     DepartmentService,
-    RoleService
+    RoleService,
+    StatusService
   ],
   bootstrap: [AppComponent]
 })
