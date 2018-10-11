@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LeaveTypeService } from '../../Service/leave-type.service';
+import { LeaveType } from '../../Models/leave-type.model';
 
 @Component({
   selector: 'app-add-leave-type',
@@ -7,8 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddLeaveTypeComponent implements OnInit {
 
-  constructor() { }
+  leaveType: LeaveType=new LeaveType();
+  
 
+  constructor(private leaveTypeService:LeaveTypeService){
+    
+  }
+
+  createLeaveType():void{
+    this.leaveTypeService.createLeaveType(this.leaveType)
+        .subscribe(data =>{
+          alert("LeaveType created successfully")
+        });
+  }
   ngOnInit() {
   }
 

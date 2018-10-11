@@ -35,6 +35,8 @@ import { FormsModule} from '@angular/forms';
 import{DepartmentService} from './Service/department.service';
 import{RoleService} from './Service/Role.service';
 import{StatusService}from './Service/status.service';
+import{LeaveTypeService}from './Service/leave-type.service';
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +76,8 @@ import{StatusService}from './Service/status.service';
   providers: [
     DepartmentService,
     RoleService,
-    StatusService
+    StatusService,
+    LeaveTypeService
   ],
   bootstrap: [AppComponent]
 })

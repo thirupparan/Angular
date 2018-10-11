@@ -9,10 +9,10 @@
 		  </tr>
     </thead>
     <tbody>
-	  <tr>
-	  <td>1</td>
-        <td>Anual</td>
-        <td>7</td>
+	  <tr *ngFor="let leaveType of  leaveTypes">
+	  <td>{{leaveType.id}}</td>
+        <td>{{leaveType.leaveType}}</td>
+        <td>{{leaveType.allocationDays}}</td>
 		
 		
         <td> 

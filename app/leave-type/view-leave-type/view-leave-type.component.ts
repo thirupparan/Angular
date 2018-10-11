@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LeaveType} from "../../Models/leave-type.model";
+import { LeaveTypeService } from '../../Service/leave-type.service';
 
 @Component({
   selector: 'app-view-leave-type',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-leave-type.component.css']
 })
 export class ViewLeaveTypeComponent implements OnInit {
+  leaveTypes: LeaveType[];
 
-  constructor() { }
+  constructor(private leaveTypeService: LeaveTypeService) {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.leaveTypeService.getAllLeaveType()
+      .subscribe(data => {
+        
+        this.leaveTypes  = data;
+        console.log(data);
+      });
+  }
 }
