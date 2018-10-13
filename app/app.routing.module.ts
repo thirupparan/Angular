@@ -14,7 +14,7 @@ import { CancelLeaveRequestComponent } from './LeaveRequest/cancel-leave-request
 import { ProcessLeaveRequestComponent } from './LeaveRequest/process-leave-request/process-leave-request.component';
 import { ApplyCarryForwardComponent } from './carryForward/apply-carry-forward/apply-carry-forward.component';
 import { ProcessCarryForwardComponent } from './carryForward/process-carry-forward/process-carry-forward.component';
-
+import { ManagePrevilagesComponent } from './manage-previlages/manage-previlages.component';
 const routes: Routes = [
   { path: 'roles', component: RoleComponent },
   { path: 'department', component: DepartmentComponent },
@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'cancelLeaveRequest', component: CancelLeaveRequestComponent },
   { path: 'processLeaveRequest', component: ProcessLeaveRequestComponent},
   { path: 'applyCarrtForward', component: ApplyCarryForwardComponent },
-  { path: 'processCarryForward', component: ProcessCarryForwardComponent}
+  { path: 'processCarryForward', component: ProcessCarryForwardComponent},
+  { path: 'privileges', component: ManagePrevilagesComponent}
 ];
 
 @NgModule({

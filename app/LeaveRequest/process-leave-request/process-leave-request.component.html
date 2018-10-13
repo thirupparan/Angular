@@ -21,33 +21,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Casual</td>
+        <tr *ngFor="let leaveRequest of leaveRequests">
+          <td>{{leaveRequest.id}}</td>
+          <td>{{leaveRequest.leaveTypeId}}</td>
           <td>01/10/2018</td>
       <td>02/10/2018</td>
       <td>10 days</td>
       <td>Weeding</td>
       <td>Approval</td>
         </tr>
-      <tr>
-          <td>2</td>
-          <td>Casual</td>
-          <td>01/10/2018</td>
-      <td>02/10/2018</td>
-      <td>10 days</td>
-      <td>Weeding</td>
-      <td>pending</td>
-      </tr>
-      <tr>
-          <td>3</td>
-          <td>Casual</td>
-          <td>01/10/2018</td>
-      <td>02/10/2018</td>
-      <td>10 days</td>
-      <td>Weeding</td>
-      <td> Cancel</td>
-        </tr>
+      
       </tbody>
     </table>
         </div>
@@ -60,7 +43,7 @@
   </div>
   <div class="container">
   <div class="row">
-    <h1>Admin View Leave Request Details</h1>
+    <h1>Manage Leave Request</h1>
     </div>
     
     <div class="row">
@@ -76,45 +59,38 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Casual</td>
-          <td>01/10/2018</td>
-      <td>02/10/2018</td>
-      <td>10 days</td>
-      <td>Weeding</td>
+          <tr *ngFor="let leaveRequest of leaveRequests">
+          <td>{{leaveRequest.id}}</td>
+          <td>{{leaveRequest.leaveTypeId.leaveType}}</td>
+          <td>{{leaveRequest.startDate | date : 'yyyy-MM-dd' }}</td>
+          <td>{{leaveRequest.endDate | date : 'yyyy-MM-dd' }}</td>
+          <td>{{leaveRequest.leaveDays}}</td>
+          <td>{{leaveRequest.reason}}</td>
       <td>
-      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">View leave History</button>
-      <button type="button" class="btn btn-success">Approval</button>
-      <button type="button" class="btn btn-danger">Rejected</button>
+     
+      <div class="row">
+          <div class="col-md-4">
+          <a href="#" data-toggle="modal" data-target="#myModal">
+              <span class="glyphicon glyphicon-eye-open"></span> 
+            </a>
+        </div>
+  
+        <div class="col-md-4">
+          <a href="#"  data-toggle="modal" data-target="#myModal2">
+              <span class="glyphicon glyphicon-ok"></span> 
+            </a>
+          </div>
+
+          <div class="col-md-4">
+              <a href="#"  data-toggle="modal" data-target="#myModal2">
+                  <span class="glyphicon glyphicon-remove"></span> 
+                </a>
+              </div>
+          </div>
+
       </td>
         </tr>
-      <tr>
-          <td>2</td>
-          <td>Casual</td>
-          <td>01/10/2018</td>
-      <td>02/10/2018</td>
-      <td>10 days</td>
-      <td>Weeding</td>
-    <td>
-      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">View leave History</button>
-      <button type="button" class="btn btn-success">Approval</button>
-      <button type="button" class="btn btn-danger">Rejected</button>
-      </td>
-    </tr>
-      <tr>
-          <td>3</td>
-          <td>Casual</td>
-          <td>01/10/2018</td>
-      <td>02/10/2018</td>
-      <td>10 days</td>
-      <td>Weeding</td>
-      <td>
-      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">View leave History</button>
-      <button type="button" class="btn btn-success">Approval</button>
-      <button type="button" class="btn btn-danger">Rejected</button>
-      </td>
-        </tr>
+      
       </tbody>
     </table>
     </div>

@@ -36,7 +36,11 @@ import{DepartmentService} from './Service/department.service';
 import{RoleService} from './Service/Role.service';
 import{StatusService}from './Service/status.service';
 import{LeaveTypeService}from './Service/leave-type.service';
+import{LeaveRequestService} from './Service/leave-request.service';
+
 import { from } from 'rxjs';
+import { ManagePrevilagesComponent } from './manage-previlages/manage-previlages.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +68,8 @@ import { from } from 'rxjs';
     CancelLeaveRequestComponent,
     ProcessLeaveRequestComponent,
     ApplyCarryForwardComponent,
-    ProcessCarryForwardComponent
+    ProcessCarryForwardComponent,
+    ManagePrevilagesComponent
   
   ],
   imports: [
@@ -77,7 +82,8 @@ import { from } from 'rxjs';
     DepartmentService,
     RoleService,
     StatusService,
-    LeaveTypeService
+    LeaveTypeService,
+    LeaveRequestService
   ],
   bootstrap: [AppComponent]
 })

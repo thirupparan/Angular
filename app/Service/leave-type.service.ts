@@ -20,7 +20,7 @@ export class LeaveTypeService {
   //   return this.http.delete(this.userUrl + "/"+ Department.id);
   // }
 
-  public createLeaveType(LeaveType) {
-    return this.http.post<LeaveType>(this.leaveTypeUrl, LeaveType);
+  public createLeaveType(leaveType) {
+    return this.http.post<LeaveType>(this.leaveTypeUrl, leaveType);
   }
 }
