@@ -8,20 +8,20 @@ import { UserService } from 'src/app/Service/user.service';
   styleUrls: ['./viewuser-registration.component.css']
 })
 export class ViewuserRegistrationComponent implements OnInit {
-  users:User[];
+  users: User[];
 
-  constructor(private userService:UserService){
-  
+  constructor(private userService: UserService) {
+
   }
-  
-    ngOnInit() {
-      this.userService.getAllUser()
-      .subscribe( data => {
-        this.users= data;
-      // alert(data);
+
+  ngOnInit() {
+    this.userService.getAllUser()
+      .subscribe(data => {
+        this.users = data;
+        // alert(data);
 
       });
-    }
+  }
 
 
 }

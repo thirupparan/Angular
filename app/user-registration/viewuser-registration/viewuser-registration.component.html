@@ -1,34 +1,34 @@
 <h2>View User Details</h2>
-           
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>User Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-		
-        <th>Join Date</th>
-		<th>Role Id</th>
-		 <th>Department Id</th>
-        <th>Service Period</th>
-       
-		
-		
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{user.id}}</td>
-        <td>{{user.firstName}}</td>
-        <td>{{user.lastName}}</td>
-		    <td>{{user.email}}</td>
-        <td>{{user.joinDate}}</td>
-        <td>{{user.roleId.roleName}}</td>
-		    <td>{{user.departmentId.departmentName}}</td>
-        <td>{{user.servicePeriod}}</td>
-        
-      </tr>
-     
-    </tbody>
-  </table>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>User Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+
+      <th>Join Date</th>
+      <th>Role Id</th>
+      <th>Department Id</th>
+      <th>Service Period</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.joinDate}}</td>
+      <td>{{user.roleId.roleName}}</td>
+      <td>{{user.departmentId.departmentName}}</td>
+      <td>{{user.servicePeriod}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
