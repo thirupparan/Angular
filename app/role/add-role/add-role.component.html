@@ -1,76 +1,44 @@
-
-  
-    <div class="form-group">
-      <label class="control-label col-sm-2" >RoleId:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="departmentid" [(ngModel)]="role.id" placeholder="Enter Role Id" >
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" >Role Name :</label>
-      <div class="col-sm-10">          
-        <input type="text" class="form-control" id="departmentName" [(ngModel)]="role.roleName" placeholder="Enter Role Name" >
-      </div>
-    </div>
-	
-	
-	  
-    
-  
-    <div class="form-group" style="margin-left:400px">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
-		 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Edit</button>
-</div>
-</div>
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#myModal">Add Role</button>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal" style="color:black;">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
+          <h4 class="modal-title">Add Role</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
-      </div>
-      <div class="modal-body">
-        <p>Are you sure do you want to create?</p>
-      </div>
-      <div class="modal-footer">
-          
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="createRole()">Save</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-    
-	
-	
        
-
-<!-- Modal -->
-<div id="myModal1" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
       </div>
       <div class="modal-body">
-        <p>Are you sure do you want to update?</p>
+      <!-- Forms goes here-->
+      <div class="form-horizontal">
+        
+          <div class="form-group">
+            <label class="control-label col-md-4" >Role Id:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" id="roleid" [(ngModel)]="role.id" readonly >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-4" >Role Name :</label>
+            <div class="col-md-8">          
+              <input type="text" class="form-control" [(ngModel)]="role.roleName" id="roleName" placeholder="Enter Role Name" >
+            </div>
+          </div>
+        
+       
+      </div>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal" (click)="createRole()">Save</button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal1">Update</button>
+      
     </div>
-
   </div>
-</div>
-     
-	
 
+</div>
+</div>

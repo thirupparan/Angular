@@ -1,6 +1,6 @@
-<h2>Department Details</h2>
+
             
-  <table class="table table-bordered">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>Department Id</th>
@@ -14,9 +14,20 @@
         <td>{{dept.departmentName}}</td>
        
 		
-		<th> <button type="button"  >Edit</button>
-        <button type="button"  data-toggle="modal" data-target="#myModal2">Delete</button>
+		<th> 
+      <div class="row">
+        <div class="col-md-6">
+        <a href="#"  data-toggle="modal" data-target="#myModal2">
+            <span class="glyphicon glyphicon-pencil"></span> 
+          </a>
+      </div>
 
+      <div class="col-md-6">
+        <a href="#"  data-toggle="modal" data-target="#myModal2">
+            <span class="glyphicon glyphicon-trash"></span> 
+          </a>
+        </div>
+        </div>
 <!-- Modal -->
 <div id="myModal2" class="modal fade" department="dialog">
   <div class="modal-dialog">

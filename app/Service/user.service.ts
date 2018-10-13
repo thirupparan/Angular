@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // Import the model file
-import {LeaveType} from "../Models/leave-type.model";
+
+import { User } from '../Models/user.model';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
-export class LeaveTypeService {
+export class UserService {
   constructor(private http:HttpClient) {}
   // constructor() { }
-  private leaveTypeUrl = 'http://localhost:8080/hrm_system/leavetype'; 
+  private userUrl = 'http://localhost:8080/hrm_system/user'; 
 
   //Get All Department
-  public getAllLeaveType() {
-    return this.http.get<LeaveType[]>(this.leaveTypeUrl);
+  public getAllUser() {
+    return this.http.get<User[]>(this.userUrl);
   }
 
 
@@ -20,7 +26,7 @@ export class LeaveTypeService {
   //   return this.http.delete(this.userUrl + "/"+ Department.id);
   // }
 
-  public createLeaveType(leaveType) {
-    return this.http.post<LeaveType>(this.leaveTypeUrl, leaveType);
+  public createUser(user) {
+    return this.http.post<User>(this.userUrl, user);
   }
 }
