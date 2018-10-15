@@ -32,7 +32,7 @@ export class ApplyLeaveRequestComponent implements OnInit {
      //var today = new Date('2017-09-11');
      this.leaveRequest.getleaveDays();
 
-     this.leaveRequestService.createLeaveRequest(this.leaveRequest)
+      this.leaveRequestService.createLeaveRequest(this.leaveRequest)
      .subscribe(data =>{
        alert("Leave applied successfully")
      });

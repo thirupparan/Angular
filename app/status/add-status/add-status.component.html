@@ -1,15 +1,18 @@
 
-  <form class="form-horizontal" action="/action_page.php">
+  <form class="form-horizontal">
     <div class="form-group">
+      <pre>
+          {{status|json}}
+      </pre>
       <label class="control-label col-sm-2" >StatusId:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="statusid" placeholder="Enter Status Id" >
+        <input type="text" class="form-control" name="statusid"[(ngModel)]="status.id" placeholder="Enter Status Id" >
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" >Status Name :</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="statusName" placeholder="Enter Status Name" >
+        <input type="text" class="form-control" name="statusName" [(ngModel)]="status.status" placeholder="Enter Status Name" >
       </div>
     </div>
 	
@@ -25,7 +28,7 @@
 </div>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" Status="dialog">
+<div id="myModal" class="modal" Status="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -36,6 +39,9 @@
       </div>
       <div class="modal-body">
         <p>Are you sure do you want to create?</p>
+      </div>
+      <div>
+        <button (click)="createStatus()">Yes</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

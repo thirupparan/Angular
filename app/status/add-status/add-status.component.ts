@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StatusService } from '../../Service/status.service';
+import { Status } from '../../Models/status.model';
 
 @Component({
   selector: 'app-add-status',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddStatusComponent implements OnInit {
 
-  constructor() { }
+  status: Status=new Status();
+  
+
+  constructor(private statusService:StatusService){
+    
+  }
+
+  createStatus():void{
+    this.statusService.createStatus(this.status)
+        .subscribe(data =>{
+          alert("Status created successfully")
+        });
+  }
 
   ngOnInit() {
   }

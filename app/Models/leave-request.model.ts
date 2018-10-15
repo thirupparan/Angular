@@ -21,5 +21,8 @@ export class LeaveRequest {
 		var days = leaveDays / (1000 * 60 * 60 * 24) + 1;
 		console.log(days);
 		this.leaveDays = days;
+		this.startDate = new Date(this.startDate);
+		this.endDate= new Date(this.endDate);
+		this.userId=1;
 	}
 }

@@ -47,7 +47,7 @@ export class AdduserRegistrationComponent implements OnInit {
     // var x = this.user.joinDate;
     // this.user.joinDate=x+":14.036+05:30";
     this.user.joinDate= new Date(this.user.joinDate);
-    console.log(this.user);
+    // console.log(this.user);
 
     this.userService.createUser(this.user)
         .subscribe(data =>{
