@@ -31,4 +31,8 @@ export class LeaveRequestService {
   public createLeaveRequest(leaveRequest) {
     return this.http.post<LeaveRequest>(this.leaveRequestUrl, leaveRequest);
   }
+  // public getRemainingLeave() {
+  //   return this.http.get<LeaveRequest[]>(this.leaveRequestUrl);
+  // }
+
 }

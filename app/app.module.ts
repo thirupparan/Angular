@@ -38,6 +38,7 @@ import{StatusService}from './Service/status.service';
 import{LeaveTypeService}from './Service/leave-type.service';
 import{LeaveRequestService} from './Service/leave-request.service';
 import{UserService} from './Service/user.service';
+import{LeaveService} from './Service/leave.service';
 
 import { from } from 'rxjs';
 import { ManagePrevilagesComponent } from './manage-previlages/manage-previlages.component';
@@ -85,7 +86,8 @@ import { ManagePrevilagesComponent } from './manage-previlages/manage-previlages
     StatusService,
     LeaveTypeService,
     LeaveRequestService,
-    UserService
+    UserService,
+    LeaveService
   ],
   bootstrap: [AppComponent]
 })
