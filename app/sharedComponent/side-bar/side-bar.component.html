@@ -1,5 +1,6 @@
-<ul class="nav nav-pills nav-stacked">
+<ul *ngIf="isLoggedIn$ | async as isLoggedIn" class="nav nav-pills nav-stacked">
   <div class="list-group">
+      
       <a routerLink="/privileges" class="list-group-item">Manage Privileges</a>
       <a routerLink="/department" class="list-group-item">Manage Department</a>
       <a routerLink="/leaveType" class="list-group-item ">Manage Leave Types</a>
@@ -16,5 +17,6 @@
     <a routerLink="/cancelLeaveRequest" class="list-group-item">Cancel Leave Request</a>
      <a routerLink="/applyCarrtForward" class="list-group-item">Carry Forward Request</a>
  </div>
+ </ul>
 
  

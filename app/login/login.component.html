@@ -1,0 +1,13 @@
+<div class="signin-content">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <p>Please login to continue</p>
+              
+                <input type="text" placeholder="User" formControlName="userName" required>
+                
+              
+                <input type="password" placeholder="Password" formControlName="password" required>
+                
+              <button type="submit">Login</button>
+            </form>
+          
+      </div>

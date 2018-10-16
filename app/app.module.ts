@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app.routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './sharedComponent/top-bar/top-bar.component';
@@ -30,18 +31,23 @@ import { ProcessLeaveRequestComponent } from './LeaveRequest/process-leave-reque
 import { ApplyCarryForwardComponent } from './carryForward/apply-carry-forward/apply-carry-forward.component';
 import { ProcessCarryForwardComponent } from './carryForward/process-carry-forward/process-carry-forward.component';
 
-import { HttpClientModule} from '@angular/common/http';
-import { FormsModule} from '@angular/forms';
-import{DepartmentService} from './Service/department.service';
-import{RoleService} from './Service/Role.service';
-import{StatusService}from './Service/status.service';
-import{LeaveTypeService}from './Service/leave-type.service';
-import{LeaveRequestService} from './Service/leave-request.service';
-import{UserService} from './Service/user.service';
-import{LeaveService} from './Service/leave.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { DepartmentService } from './Service/department.service';
+import { RoleService } from './Service/Role.service';
+import { StatusService } from './Service/status.service';
+import { LeaveTypeService } from './Service/leave-type.service';
+import { LeaveRequestService } from './Service/leave-request.service';
+import { UserService } from './Service/user.service';
+import { LeaveService } from './Service/leave.service';
+
 
 import { from } from 'rxjs';
 import { ManagePrevilagesComponent } from './manage-previlages/manage-previlages.component';
+
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './Auth/auth.guard';
+import { AuthService } from './Auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -71,14 +77,16 @@ import { ManagePrevilagesComponent } from './manage-previlages/manage-previlages
     ProcessLeaveRequestComponent,
     ApplyCarryForwardComponent,
     ProcessCarryForwardComponent,
-    ManagePrevilagesComponent
-  
+    ManagePrevilagesComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     DepartmentService,
@@ -87,7 +95,9 @@ import { ManagePrevilagesComponent } from './manage-previlages/manage-previlages
     LeaveTypeService,
     LeaveRequestService,
     UserService,
-    LeaveService
+    LeaveService,
+    AuthGuard,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
