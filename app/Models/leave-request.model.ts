@@ -23,7 +23,7 @@ export class LeaveRequest {
 		this.leaveDays = days;
 		this.startDate = new Date(this.startDate);
 		this.endDate= new Date(this.endDate);
-		this.userId=1;
+		
 		return days;
 	}
 }

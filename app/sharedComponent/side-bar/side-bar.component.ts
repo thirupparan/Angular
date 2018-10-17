@@ -9,12 +9,17 @@ import { AuthService } from 'src/app/Auth/auth.service';
 })
 export class SideBarComponent implements OnInit {
 
+  user$:Observable<boolean>;
+ 
+
   isLoggedIn$: Observable<boolean>;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.isLoggedIn$ = this.authService.isLoggedIn;
+    this.user$=this.authService.getRole;
+    
   }
 
   onLogout() {

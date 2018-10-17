@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'processCarryForward', component: ProcessCarryForwardComponent,canActivate: [AuthGuard]},
   { path: 'privileges', component: ManagePrevilagesComponent,canActivate: [AuthGuard]},
   
-  { path: 'login', component: LoginComponent},
+  { path: '', component: LoginComponent},
   { path: '**', redirectTo: ''}
   
 ];

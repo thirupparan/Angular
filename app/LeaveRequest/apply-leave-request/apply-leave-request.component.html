@@ -22,7 +22,7 @@
       <label class="control-label col-sm-2" for="email">Leave Type:</label>
       <div class="col-sm-4">
         
-        <select #leaveType="ngModel" class="form-control" [(ngModel)]="leaveRequest.leaveTypeId" name="leaveType" (change)="getRemainingLeaveByUidAndLid('1',leaveType.value)">
+        <select #leaveType="ngModel" class="form-control" [(ngModel)]="leaveRequest.leaveTypeId" name="leaveType" (change)="getRemainingLeaveByUidAndLid(userId,leaveType.value)">
             <option *ngFor="let leaveType of leaveTypes" value="{{leaveType.id}}" >{{leaveType.leaveType}}</option>
            
       </select>

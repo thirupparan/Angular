@@ -1,22 +1,22 @@
 <ul *ngIf="isLoggedIn$ | async as isLoggedIn" class="nav nav-pills nav-stacked">
   <div class="list-group">
-      
+  
+    <div *ngIf="user$ | async as getRole"> 
       <a routerLink="/privileges" class="list-group-item">Manage Privileges</a>
       <a routerLink="/department" class="list-group-item">Manage Department</a>
       <a routerLink="/leaveType" class="list-group-item ">Manage Leave Types</a>
-      <a routerLink="/roles"  class="list-group-item">Manage Role</a>
-       <a routerLink="/status" class="list-group-item">Manage Status</a>
-       <a routerLink="/users" class="list-group-item">Manage Users</a>
-       <a routerLink="/processLeaveRequest" class="list-group-item">Process Leave Requests</a>
-         <a routerLink="/processCarryForward" class="list-group-item">Process Carry Forward</a>
-        
-        
-    <a routerLink="/leaveHistory" class="list-group-item">Leave History</a>
-   <a routerLink="/leaveStatistics" class="list-group-item">Leave Statistics</a>
-   <a routerLink="/applyLeaveRequest" class="list-group-item">Apply Leave</a>
-    <a routerLink="/cancelLeaveRequest" class="list-group-item">Cancel Leave Request</a>
-     <a routerLink="/applyCarrtForward" class="list-group-item">Carry Forward Request</a>
- </div>
- </ul>
+      <a routerLink="/roles" class="list-group-item">Manage Role</a>
+      <a routerLink="/status" class="list-group-item">Manage Status</a>
+      <a routerLink="/users" class="list-group-item">Manage Users</a>
+      <a routerLink="/processLeaveRequest" class="list-group-item">Process Leave Requests</a>
+      <a routerLink="/processCarryForward" class="list-group-item">Process Carry Forward</a>
+    </div>
 
- 
+    <a routerLink="/leaveHistory" class="list-group-item">Leave History</a>
+    <a routerLink="/leaveStatistics" class="list-group-item">Leave Statistics</a>
+    <a routerLink="/applyLeaveRequest" class="list-group-item">Apply Leave</a>
+    <a routerLink="/cancelLeaveRequest" class="list-group-item">Cancel Leave Request</a>
+    <a routerLink="/applyCarrtForward" class="list-group-item">Carry Forward Request</a>
+
+  </div>
+</ul>

@@ -5,6 +5,7 @@ import { LeaveRequest } from 'src/app/Models/leave-request.model';
 import { LeaveRequestService } from 'src/app/Service/leave-request.service';
 import { LeaveService } from 'src/app/Service/leave.service';
 import { Leave } from 'src/app/Models/leave.model';
+import { AuthService } from 'src/app/Auth/auth.service';
 
 @Component({
   selector: 'app-apply-leave-request',
@@ -17,12 +18,17 @@ export class ApplyLeaveRequestComponent implements OnInit {
   leaveRequest: LeaveRequest = new LeaveRequest();
   leave: Leave[];
 
-  remainingDays:number;
-  validationStatus:boolean=false;
-  validationMsg:String="";
-  dateMsg:string="";
+  remainingDays: number;
+  validationStatus: boolean = false;
+  validationMsg: String = "";
+  dateMsg: string = "";
+  userId:number=null;
 
-  constructor(private leaveTypeService: LeaveTypeService, private leaveRequestService: LeaveRequestService, private leaveService: LeaveService) {
+  constructor(
+    private leaveTypeService: LeaveTypeService,
+     private leaveRequestService: LeaveRequestService, 
+     private leaveService: LeaveService,
+     private authService: AuthService) {
 
   }
 
@@ -32,49 +38,58 @@ export class ApplyLeaveRequestComponent implements OnInit {
         this.leaveTypes = data;
         console.log(data);
       });
-    
-      this.getRemainingLeave("1");
-      //this.getRemainingLeaveByUidAndLid("1","3");
+
+    this.getRemainingLeave("1");
+    //this.getRemainingLeaveByUidAndLid("1","3")
+   this.getUserId();
+   
   }
 
-  checkNegativity(){
-    if(this.leaveRequest.getleaveDays()<0){
-      this.dateMsg="dateNegativity";
-      this.validationStatus=true;
+  checkNegativity() {
+    if (this.leaveRequest.getleaveDays() < 0) {
+      this.dateMsg = "dateNegativity";
+      this.validationStatus = true;
     }
+  }
+
+  getUserId(){
+    
+    this.authService.isUserId.subscribe(data=>{
+    this.userId= data;
+          });
   }
 
   createLeaveRequest() {
     console.log(this.leaveRequest);
     //var today = new Date('2017-09-11');
-    if(this.leaveRequest.getleaveDays()>this.remainingDays){
-       // alert("can't take leave");  
-        this.validationStatus=true;
-    }else{
-
-    this.leaveRequestService.createLeaveRequest(this.leaveRequest)
-      .subscribe(data => {
-        //alert("Leave applied successfully")
-        this.validationStatus=false;
-        this.validationMsg="ok";
-      });
+    if (this.leaveRequest.getleaveDays() > this.remainingDays) {
+      // alert("can't take leave");  
+      this.validationStatus = true;
+    } else {
+      this.leaveRequest.userId=this.userId;
+      this.leaveRequestService.createLeaveRequest(this.leaveRequest)
+        .subscribe(data => {
+          //alert("Leave applied successfully")
+          this.validationStatus = false;
+          this.validationMsg = "ok";
+        });
     }
   }
-   
-  getRemainingLeave(userId:String){
+
+  getRemainingLeave(userId: String) {
     this.leaveService.getRemainingLeave(userId)
-    .subscribe(data => {
-      this.leave = data;
-      console.log(data);
-    });
+      .subscribe(data => {
+        this.leave = data;
+        console.log(data);
+      });
   }
-  getRemainingLeaveByUidAndLid(userId:String,leaveTypeId:string){
-    this.leaveService.getRemainingLeaveByUidAndLid(userId,leaveTypeId)
-    .subscribe(data => {
-      
-      //alert(data);
-      this.remainingDays=data;
-    });
+  getRemainingLeaveByUidAndLid(userId: String, leaveTypeId: string) {
+    this.leaveService.getRemainingLeaveByUidAndLid(userId, leaveTypeId)
+      .subscribe(data => {
+
+        //alert(data);
+        this.remainingDays = data;
+      });
   }
 
 }

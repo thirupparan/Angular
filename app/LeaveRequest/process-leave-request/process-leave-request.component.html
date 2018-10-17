@@ -52,6 +52,7 @@
         <tr>
           <th>Leave Id</th>
           <th>Leave Type</th>
+          <th>Applied by</th>
           <th>Starting date</th>
       <th>Ending date</th>
       <th>Number of days</th>
@@ -62,6 +63,7 @@
           <tr *ngFor="let leaveRequest of leaveRequests">
           <td>{{leaveRequest.id}}</td>
           <td>{{leaveRequest.leaveTypeId.leaveType}}</td>
+          <td>{{leaveRequest.userId.firstName + " " +leaveRequest.userId.lastName }}</td>
           <td>{{leaveRequest.startDate | date : 'yyyy-MM-dd' }}</td>
           <td>{{leaveRequest.endDate | date : 'yyyy-MM-dd' }}</td>
           <td>{{leaveRequest.leaveDays}}</td>

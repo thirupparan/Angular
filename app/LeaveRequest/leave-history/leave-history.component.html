@@ -1,48 +1,30 @@
 <div class="row">
-    <h1>Employee View Leave Request</h1>
-    </div>
-    
-    <div class="row">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Leave Id</th>
-          <th>Leave Type</th>
-          <th>Starting date</th>
-      <th>Ending date</th>
-      <th>Number of days</th>
-      <th>Reason</th>
-      <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Casual</td>
-          <td>01/10/2018</td>
-      <td>02/10/2018</td>
-      <td>10 days</td>
-      <td>Wedding</td>
-      <td>Approval</td>
-        </tr>
+  <h1>Employee View Leave Request</h1>
+</div>
+
+<div class="row">
+  <table class="table table-bordered">
+    <thead>
       <tr>
-          <td>2</td>
-          <td>Casual</td>
-          <td>01/10/2018</td>
-      <td>02/10/2018</td>
-      <td>10 days</td>
-      <td>Weeding</td>
-      <td>pending</td>
+        <th>Leave Id</th>
+        <th>Leave Type</th>
+        <th>Starting date</th>
+        <th>Ending date</th>
+        <th>Number of days</th>
+        <th>Reason</th>
+        <th>Status</th>
       </tr>
-      <tr>
-          <td>3</td>
-          <td>Casual</td>
-          <td>01/10/2018</td>
-      <td>02/10/2018</td>
-      <td>10 days</td>
-      <td>Weeding</td>
-      <td> Cancel</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leaveRequest of leaveRequests">
+        <td>{{leaveRequest.id}}</td>
+        <td>{{leaveRequest.leaveTypeId.leaveType}}</td>
+        <td>{{leaveRequest.startDate | date : 'yyyy-MM-dd' }}</td>
+        <td>02/10/2018</td>
+        <td>10 days</td>
+        <td>Wedding</td>
+        <td>Approval</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
