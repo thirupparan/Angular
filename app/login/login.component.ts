@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-      alert("Test");
+      alert('Test');
       this.authService.login(this.form.value);
     this.formSubmitAttempt = true;
 

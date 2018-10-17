@@ -17,6 +17,7 @@ export class ApplyLeaveRequestComponent implements OnInit {
   leaveRequest: LeaveRequest = new LeaveRequest();
   leave: Leave[];
 
+  // tslint:disable-next-line:max-line-length
   constructor(private leaveTypeService: LeaveTypeService, private leaveRequestService: LeaveRequestService, private leaveService: LeaveService) {
 
   }
@@ -27,34 +28,34 @@ export class ApplyLeaveRequestComponent implements OnInit {
         this.leaveTypes = data;
         console.log(data);
       });
-    
-      this.getRemainingLeave("1");
-      this.getRemainingLeaveByUidAndLid("1","3");
+
+      this.getRemainingLeave('2');
+      this.getRemainingLeaveByUidAndLid('1', '1');
   }
 
 
   createLeaveRequest() {
     console.log(this.leaveRequest);
-    //var today = new Date('2017-09-11');
+    // var today = new Date('2017-09-11');
     this.leaveRequest.getleaveDays();
 
     this.leaveRequestService.createLeaveRequest(this.leaveRequest)
       .subscribe(data => {
-        alert("Leave applied successfully")
+        alert('Leave applied successfully');
       });
   }
-   
-  getRemainingLeave(userId:String){
+
+  getRemainingLeave(userId: String) {
     this.leaveService.getRemainingLeave(userId)
     .subscribe(data => {
       this.leave = data;
       console.log(data);
     });
   }
-  getRemainingLeaveByUidAndLid(userId:String,leaveTypeId:string){
-    this.leaveService.getRemainingLeaveByUidAndLid(userId,leaveTypeId)
+  getRemainingLeaveByUidAndLid(userId: String, leaveTypeId: string) {
+    this.leaveService.getRemainingLeaveByUidAndLid(userId, leaveTypeId)
     .subscribe(data => {
-      
+
       alert(data);
     });
   }
