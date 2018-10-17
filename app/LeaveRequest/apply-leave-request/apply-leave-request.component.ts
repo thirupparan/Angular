@@ -17,7 +17,15 @@ export class ApplyLeaveRequestComponent implements OnInit {
   leaveRequest: LeaveRequest = new LeaveRequest();
   leave: Leave[];
 
+<<<<<<< HEAD
   // tslint:disable-next-line:max-line-length
+=======
+  remainingDays:number;
+  validationStatus:boolean=false;
+  validationMsg:String="";
+  dateMsg:string="";
+
+>>>>>>> 98a6ccda1df671bfc0fbc6c25956215cb6076f5f
   constructor(private leaveTypeService: LeaveTypeService, private leaveRequestService: LeaveRequestService, private leaveService: LeaveService) {
 
   }
@@ -28,21 +36,48 @@ export class ApplyLeaveRequestComponent implements OnInit {
         this.leaveTypes = data;
         console.log(data);
       });
+<<<<<<< HEAD
 
       this.getRemainingLeave('2');
       this.getRemainingLeaveByUidAndLid('1', '1');
+=======
+    
+      this.getRemainingLeave("1");
+      //this.getRemainingLeaveByUidAndLid("1","3");
+>>>>>>> 98a6ccda1df671bfc0fbc6c25956215cb6076f5f
   }
 
+  checkNegativity(){
+    if(this.leaveRequest.getleaveDays()<0){
+      this.dateMsg="dateNegativity";
+      this.validationStatus=true;
+    }
+  }
 
   createLeaveRequest() {
     console.log(this.leaveRequest);
+<<<<<<< HEAD
     // var today = new Date('2017-09-11');
     this.leaveRequest.getleaveDays();
 
     this.leaveRequestService.createLeaveRequest(this.leaveRequest)
       .subscribe(data => {
         alert('Leave applied successfully');
+=======
+    //var today = new Date('2017-09-11');
+    if(this.leaveRequest.getleaveDays()>this.remainingDays){
+       // alert("can't take leave");  
+        this.validationStatus=true;
+    }else{
+
+    this.leaveRequestService.createLeaveRequest(this.leaveRequest)
+      .subscribe(data => {
+        //alert("Leave applied successfully")
+        this.validationStatus=false;
+        this.validationMsg="ok";
+>>>>>>> 98a6ccda1df671bfc0fbc6c25956215cb6076f5f
       });
+    }
   }
 
   getRemainingLeave(userId: String) {
@@ -55,8 +90,14 @@ export class ApplyLeaveRequestComponent implements OnInit {
   getRemainingLeaveByUidAndLid(userId: String, leaveTypeId: string) {
     this.leaveService.getRemainingLeaveByUidAndLid(userId, leaveTypeId)
     .subscribe(data => {
+<<<<<<< HEAD
 
       alert(data);
+=======
+      
+      //alert(data);
+      this.remainingDays=data;
+>>>>>>> 98a6ccda1df671bfc0fbc6c25956215cb6076f5f
     });
   }
 

@@ -20,23 +20,23 @@ import { ManagePrevilagesComponent } from './manage-previlages/manage-previlages
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'roles', component: RoleComponent,canActivate: [AuthGuard] },
-  { path: 'department', component: DepartmentComponent,canActivate: [AuthGuard]},
-  { path: 'leaveType', component: LeaveTypeComponent,canActivate: [AuthGuard]  },
-  { path: 'status', component: StatusComponent,canActivate: [AuthGuard] },
-  { path: 'users', component: UserRegistrationComponent,canActivate: [AuthGuard] },
-  { path: 'applyLeaveRequest', component: ApplyLeaveRequestComponent,canActivate: [AuthGuard] },
-  { path: 'leaveHistory', component: LeaveHistoryComponent,canActivate: [AuthGuard] },
-  { path: 'leaveStatistics', component: LeaveStatisticsComponent,canActivate: [AuthGuard] },
-  { path: 'cancelLeaveRequest', component: CancelLeaveRequestComponent,canActivate: [AuthGuard] },
-  { path: 'processLeaveRequest', component: ProcessLeaveRequestComponent,canActivate: [AuthGuard]},
-  { path: 'applyCarrtForward', component: ApplyCarryForwardComponent,canActivate: [AuthGuard] },
-  { path: 'processCarryForward', component: ProcessCarryForwardComponent,canActivate: [AuthGuard]},
-  { path: 'privileges', component: ManagePrevilagesComponent,canActivate: [AuthGuard]},
-  
+  { path: 'roles', component: RoleComponent, canActivate: [AuthGuard] },
+  { path: 'department', component: DepartmentComponent, canActivate: [AuthGuard]},
+  { path: 'leaveType', component: LeaveTypeComponent, canActivate: [AuthGuard]  },
+  { path: 'status', component: StatusComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UserRegistrationComponent, canActivate: [AuthGuard] },
+  { path: 'applyLeaveRequest', component: ApplyLeaveRequestComponent, canActivate: [AuthGuard] },
+  { path: 'leaveHistory', component: LeaveHistoryComponent, canActivate: [AuthGuard] },
+  { path: 'leaveStatistics', component: LeaveStatisticsComponent, canActivate: [AuthGuard] },
+  { path: 'cancelLeaveRequest', component: CancelLeaveRequestComponent, canActivate: [AuthGuard] },
+  { path: 'processLeaveRequest', component: ProcessLeaveRequestComponent, canActivate: [AuthGuard]},
+  { path: 'applyCarrtForward', component: ApplyCarryForwardComponent, canActivate: [AuthGuard] },
+  { path: 'processCarryForward', component: ProcessCarryForwardComponent, canActivate: [AuthGuard]},
+  { path: 'privileges', component: ManagePrevilagesComponent, canActivate: [AuthGuard]},
+
   { path: 'login', component: LoginComponent},
   { path: '**', redirectTo: ''}
-  
+
 ];
 
 @NgModule({
