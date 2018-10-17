@@ -4,11 +4,11 @@
     {{leaveRequest|json}}
   </pre>
     </div>
-
+    
     <div class="row">
 
     <div class="form-horizontal">
-
+    
     <div *ngIf="validationStatus" class="alert alert-warning" role="alert">
          You have Applied Leave for More than your remaing Days
     </div>
@@ -16,52 +16,52 @@
     <div *ngIf="!validationStatus && validationMsg==='ok'" class="alert alert-success" role="alert">
       Success Fully Applied Leave
  </div>
-
+    
     <div class="row">
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Leave Type:</label>
       <div class="col-sm-4">
-
+        
         <select #leaveType="ngModel" class="form-control" [(ngModel)]="leaveRequest.leaveTypeId" name="leaveType" (change)="getRemainingLeaveByUidAndLid('1',leaveType.value)">
             <option *ngFor="let leaveType of leaveTypes" value="{{leaveType.id}}" >{{leaveType.leaveType}}</option>
-
+           
       </select>
 
       </div>
     <label class="control-label col-sm-2" for="pwd">Remaining Days:</label>
-      <div class="col-sm-3">
+      <div class="col-sm-3"> 
         <input type="text" class="form-control" id="pwd" placeholder="Remaining Days" readonly value="{{remainingDays}}">
       </div>
-
+    
     </div>
-
+    
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Starting Date:</label>
-      <div class="col-sm-4">
+      <div class="col-sm-4"> 
         <input type="date" class="form-control" id="pwd" placeholder="Starting Date" [(ngModel)]="leaveRequest.startDate">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ending Date:</label>
-      <div class="col-sm-4">
-        <input type="date" class="form-control" id="pwd" placeholder="Ending Date" [(ngModel)]="leaveRequest.endDate" (change)="checkNegativity()">
+      <div class="col-sm-4"> 
+        <input type="date" class="form-control" id="pwd" placeholder="Ending Date" [(ngModel)]="leaveRequest.endDate" (change)="checkNegativity()"> 
       </div>
       <span *ngIf="validationStatus && dateMsg==='dateNegativity'" class="text-danger">Please Check the Dates</span>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Reason:</label>
-      <div class="col-sm-9">
+      <div class="col-sm-9"> 
         <input type="text" class="form-control" id="pwd" placeholder="Reason" [(ngModel)]="leaveRequest.reason">
       </div>
-
+     
     </div>
-
-    <div class="form-group">
+   
+    <div class="form-group"> 
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-default" (click)="createLeaveRequest()">Submit</button>
       </div>
     </div>
-
+    
   </div>
 </div>

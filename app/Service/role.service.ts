@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // Import the model file
-import {Role} from '../Models/role.model';
+import {Role} from "../Models/role.model";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,11 +13,11 @@ const httpOptions = {
 })
 export class RoleService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http:HttpClient) {}
   // constructor() { }
-  private roleUrl = 'http://localhost:8080/hrm_system/role';
+  private roleUrl = 'http://localhost:8080/hrm_system/role'; 
 
-  // Get All Department
+  //Get All Department
   public getAllRoles() {
     return this.http.get<Role[]>(this.roleUrl);
   }

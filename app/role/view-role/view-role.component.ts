@@ -12,9 +12,9 @@ export class ViewRoleComponent implements OnInit {
   roles:Role[];
 
   constructor(private roleService:RoleService){
-
+  
   }
-
+  
     ngOnInit() {
       this.roleService.getAllRoles()
       .subscribe( data => {
