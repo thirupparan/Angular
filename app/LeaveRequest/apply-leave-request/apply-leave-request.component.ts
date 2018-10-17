@@ -17,6 +17,11 @@ export class ApplyLeaveRequestComponent implements OnInit {
   leaveRequest: LeaveRequest = new LeaveRequest();
   leave: Leave[];
 
+  remainingDays:number;
+  validationStatus:boolean=false;
+  validationMsg:String="";
+  dateMsg:string="";
+
   constructor(private leaveTypeService: LeaveTypeService, private leaveRequestService: LeaveRequestService, private leaveService: LeaveService) {
 
   }
@@ -29,19 +34,31 @@ export class ApplyLeaveRequestComponent implements OnInit {
       });
     
       this.getRemainingLeave("1");
-      this.getRemainingLeaveByUidAndLid("1","3");
+      //this.getRemainingLeaveByUidAndLid("1","3");
   }
 
+  checkNegativity(){
+    if(this.leaveRequest.getleaveDays()<0){
+      this.dateMsg="dateNegativity";
+      this.validationStatus=true;
+    }
+  }
 
   createLeaveRequest() {
     console.log(this.leaveRequest);
     //var today = new Date('2017-09-11');
-    this.leaveRequest.getleaveDays();
+    if(this.leaveRequest.getleaveDays()>this.remainingDays){
+       // alert("can't take leave");  
+        this.validationStatus=true;
+    }else{
 
     this.leaveRequestService.createLeaveRequest(this.leaveRequest)
       .subscribe(data => {
-        alert("Leave applied successfully")
+        //alert("Leave applied successfully")
+        this.validationStatus=false;
+        this.validationMsg="ok";
       });
+    }
   }
    
   getRemainingLeave(userId:String){
@@ -55,7 +72,8 @@ export class ApplyLeaveRequestComponent implements OnInit {
     this.leaveService.getRemainingLeaveByUidAndLid(userId,leaveTypeId)
     .subscribe(data => {
       
-      alert(data);
+      //alert(data);
+      this.remainingDays=data;
     });
   }
 
