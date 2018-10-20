@@ -58,7 +58,7 @@ export class ApplyLeaveRequestComponent implements OnInit {
     this.userId= data;
           });
   }
-
+ 
   createLeaveRequest() {
     console.log(this.leaveRequest);
     //var today = new Date('2017-09-11');
@@ -67,6 +67,9 @@ export class ApplyLeaveRequestComponent implements OnInit {
       this.validationStatus = true;
     } else {
       this.leaveRequest.userId=this.userId;
+      this.leaveRequest.statusId=2;
+      this.leaveRequest.startDate = new Date(this.leaveRequest.startDate);
+		  this.leaveRequest.endDate= new Date(this.leaveRequest.endDate);
       this.leaveRequestService.createLeaveRequest(this.leaveRequest)
         .subscribe(data => {
           //alert("Leave applied successfully")

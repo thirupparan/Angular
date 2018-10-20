@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LeaveRequest } from 'src/app/Models/leave-request.model';
 import { LeaveRequestService } from 'src/app/Service/leave-request.service';
-import { LeaveTypeService } from 'src/app/Service/leave-type.service';
-import { LeaveType } from 'src/app/Models/leave-type.model';
+import { AuthService } from 'src/app/Auth/auth.service';
+
 
 @Component({
   selector: 'app-leave-history',
@@ -11,27 +11,27 @@ import { LeaveType } from 'src/app/Models/leave-type.model';
 })
 export class LeaveHistoryComponent implements OnInit {
   leaveRequests: LeaveRequest[];
-  leaveTypes: LeaveType[];
-  constructor(private leaveRequestService: LeaveRequestService, private leaveTypeService: LeaveTypeService) { }
+
+  constructor(private leaveRequestService: LeaveRequestService,
+              private authService: AuthService) { }
 
   ngOnInit() {
-    this.getLeaveRequest()
-    this.getLeaveType()
+    this.getLeaveHistory();
   }
-  getLeaveType() {
-    this.leaveTypeService.getAllLeaveType()
-      .subscribe(data => {
-        this.leaveTypes = data;
-        console.log(data);
-      });
+  getLeaveHistoryByUserId(empId:string){
+    this.leaveRequestService.getLeaveHistoryByUserId(empId)
+    .subscribe(data =>{
+      this.leaveRequests =data;
+      console.log(data);
+    });
   }
-  getLeaveRequest() {
-    this.leaveRequestService.getAllLeaveRequest()
-      .subscribe(data => {
-        this.leaveRequests = data;
-        //console.log(data);
-        alert(this.leaveRequests);
-      });
+
+  getLeaveHistory(){
+    
+    this.authService.isUserId.subscribe(data=>{
+      this.getLeaveHistoryByUserId(data.toString());
+          });
   }
+ 
 
 }

@@ -20,11 +20,14 @@
         <td>{{leaveRequest.id}}</td>
         <td>{{leaveRequest.leaveTypeId.leaveType}}</td>
         <td>{{leaveRequest.startDate | date : 'yyyy-MM-dd' }}</td>
-        <td>02/10/2018</td>
-        <td>10 days</td>
-        <td>Wedding</td>
-        <td>Approval</td>
+        <td>{{leaveRequest.endDate | date : 'yyyy-MM-dd' }}</td>
+        <td>{{leaveRequest.leaveDays}}</td>
+        <td>{{leaveRequest.reason}}</td>
+        <td>{{leaveRequest.statusId.status}}</td>
       </tr>
+      
     </tbody>
   </table>
+
+ 
 </div>

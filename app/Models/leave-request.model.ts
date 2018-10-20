@@ -1,6 +1,4 @@
 export class LeaveRequest {
-
-
 	userId: number;
 	leaveTypeId: number;
 	startDate: Date;
@@ -8,10 +6,9 @@ export class LeaveRequest {
 	reason: String;
 	leaveDays: number;
 
-	// leave Approval
+	
 	statusId: number;
-	recommendedBy: number;
-	approvedBy: number;
+	
 
 
 	public getleaveDays() {
@@ -21,8 +18,7 @@ export class LeaveRequest {
 		var days = leaveDays / (1000 * 60 * 60 * 24) + 1;
 		console.log(days);
 		this.leaveDays = days;
-		this.startDate = new Date(this.startDate);
-		this.endDate= new Date(this.endDate);
+	
 		
 		return days;
 	}
